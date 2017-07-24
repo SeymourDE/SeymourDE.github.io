@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="python基础 - list、tuple、dict和set"/>
+
+
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+  <link rel="alternative" href="/default" title="Seymour" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2016/02/22/python-2.html"/>
+
+
+<meta name="description" content="list 列表list是一种有序的集合，可以随时添加和删除其中的元素
+ 
+示例代码:
+# list&amp;gt;&amp;gt;&amp;gt; list = [&apos;green&apos;, &apos;pink&apos;, &apos;yellow&apos;]&amp;gt;&amp;gt;&amp;gt; list[&apos;green&apos;, &apos;pink&apos;, &apos;yellow&apos;]  
+相关函数
+len()  获取list/tuple元素的个数append() 在list中追加元素到末尾pop()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python基础 - list、tuple、dict和set">
+<meta property="og:url" content="http://yoursite.com/2016/02/22/python-2.html">
+<meta property="og:site_name" content="Seymour">
+<meta property="og:description" content="list 列表list是一种有序的集合，可以随时添加和删除其中的元素
+ 
+示例代码:
+# list&amp;gt;&amp;gt;&amp;gt; list = [&apos;green&apos;, &apos;pink&apos;, &apos;yellow&apos;]&amp;gt;&amp;gt;&amp;gt; list[&apos;green&apos;, &apos;pink&apos;, &apos;yellow&apos;]  
+相关函数
+len()  获取list/tuple元素的个数append() 在list中追加元素到末尾pop()">
+<meta property="og:updated_time" content="2017-07-24T10:58:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python基础 - list、tuple、dict和set">
+<meta name="twitter:description" content="list 列表list是一种有序的集合，可以随时添加和删除其中的元素
+ 
+示例代码:
+# list&amp;gt;&amp;gt;&amp;gt; list = [&apos;green&apos;, &apos;pink&apos;, &apos;yellow&apos;]&amp;gt;&amp;gt;&amp;gt; list[&apos;green&apos;, &apos;pink&apos;, &apos;yellow&apos;]  
+相关函数
+len()  获取list/tuple元素的个数append() 在list中追加元素到末尾pop()">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> python基础 - list、tuple、dict和set - Seymour </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">Seymour</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/github">
+                            
+                            
+                                Github
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          python基础 - list、tuple、dict和set
+        
+      </h1>
+
+      <time class="post-time">
+          Feb 22 2016
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h4 id="list_列表">list 列表</h4><blockquote><p>list是一种有序的集合，可以随时添加和删除其中的元素</p>
+</blockquote> 
+<p><strong>示例代码:</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># list</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>list = [<span class="string">'green'</span>, <span class="string">'pink'</span>, <span class="string">'yellow'</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="string">'green'</span>, <span class="string">'pink'</span>, <span class="string">'yellow'</span>]</span><br></pre></td></tr></table></figure>  
+<p><strong>相关函数</strong></p>
+<blockquote><p>len()  获取list/tuple元素的个数<br>append() 在list中追加元素到末尾<br>pop()  删除list末尾的元素<br>insert() 把元素插入到指定的位置</p>
+</blockquote> 
+<h4 id="tuple_元组">tuple 元组</h4><blockquote><p>另一种有序列表叫做元组，tuple, tuple和list非常类似，但是tuple一旦初始化就不能修改</p>
+</blockquote> 
+<p><strong>代码</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>list = (<span class="string">'green'</span>, <span class="string">'pink'</span>, <span class="string">'yellow'</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>list</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; d5e3367246b409fe6cf9e3704337b8be2a292dc4</span><br><span class="line">(<span class="string">'green'</span>, <span class="string">'pink'</span>, <span class="string">'yellow'</span>)</span><br></pre></td></tr></table></figure>  
+<p><strong>注意事项</strong></p>
+<ul>
+<li>当你定义一个tuple时，在定义的时候，tuple的元素就必须确定下来</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>t = (<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>t</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure> 
+<p><strong>2. 当你顶一个空的tuple，可以写成()。</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>t = ()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>t</span><br><span class="line">()</span><br></pre></td></tr></table></figure> 
+<p><strong>3. 如果要定义只有1个元素的tuple，必须加一个逗号‘，’, 推荐使用 t = (1, )。</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>t = (<span class="number">1</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>t</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="comment"># 此处定义的不是tuple，是1这个数。</span></span><br><span class="line"><span class="comment"># 括号既可以表示tuple</span></span><br><span class="line"><span class="comment"># 又可以表示数学公式中的小括号</span></span><br><span class="line"></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>t = (<span class="number">1</span>, )</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>t</span><br><span class="line">(<span class="number">1</span>, )</span><br><span class="line"><span class="comment"># 只有一个元素的tuple</span></span><br></pre></td></tr></table></figure> 
+<h4 id="dict_字典">dict 字典</h4><blockquote>
+<p>python 内置了dict的支持，使用键-值(key-value)存储，具有极快的查找速度。</p>
+</blockquote>
+<p><strong>1. 通过key读取dict里面的value, 如果key不存在, dict就会报错</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>score = &#123;<span class="string">'Tom'</span>: <span class="number">100</span>, <span class="string">'Bob'</span>: <span class="number">98</span>, <span class="string">'lily'</span>: <span class="number">100</span>&#125;</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>score[<span class="string">'Tom'</span>]</span><br><span class="line"><span class="number">100</span></span><br></pre></td></tr></table></figure> 
+<p><strong>2. </strong></p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/python/">python</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/02/23/php-array-1.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">PHP数组原理和高级应用(1) - 数组的表单方式</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/02/22/python-1.html">
+        <span class="next-text nav-default">python基础 - 数据类型和变量</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2017
+    <span class="footer-author">Seymour.</span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>

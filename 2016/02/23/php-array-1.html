@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="PHP数组原理和高级应用(1) - 数组的表单方式"/>
+
+
+
+
+  <meta name="keywords" content="php," />
+
+
+
+
+
+  <link rel="alternative" href="/default" title="Seymour" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2016/02/23/php-array-1.html"/>
+
+
+<meta name="description" content="PHP声明数组的方式1. 应用array()函数声明数组
+$array = array(1,2,3,4,5);print_r($array); // array(1,2,3,4,5)
+2. 直接为数组元素赋值
+$array[0] = &apos;a&apos;;$array[1] = &apos;b&apos;;$array[2] = &apos;c&apos;;print_r($array); // array(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;)
+
+用方括号语">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP数组原理和高级应用(1) - 数组的表单方式">
+<meta property="og:url" content="http://yoursite.com/2016/02/23/php-array-1.html">
+<meta property="og:site_name" content="Seymour">
+<meta property="og:description" content="PHP声明数组的方式1. 应用array()函数声明数组
+$array = array(1,2,3,4,5);print_r($array); // array(1,2,3,4,5)
+2. 直接为数组元素赋值
+$array[0] = &apos;a&apos;;$array[1] = &apos;b&apos;;$array[2] = &apos;c&apos;;print_r($array); // array(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;)
+
+用方括号语">
+<meta property="og:updated_time" content="2017-07-24T10:58:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP数组原理和高级应用(1) - 数组的表单方式">
+<meta name="twitter:description" content="PHP声明数组的方式1. 应用array()函数声明数组
+$array = array(1,2,3,4,5);print_r($array); // array(1,2,3,4,5)
+2. 直接为数组元素赋值
+$array[0] = &apos;a&apos;;$array[1] = &apos;b&apos;;$array[2] = &apos;c&apos;;print_r($array); // array(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;)
+
+用方括号语">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> PHP数组原理和高级应用(1) - 数组的表单方式 - Seymour </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">Seymour</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/github">
+                            
+                            
+                                Github
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          PHP数组原理和高级应用(1) - 数组的表单方式
+        
+      </h1>
+
+      <time class="post-time">
+          Feb 23 2016
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h3 id="PHP声明数组的方式">PHP声明数组的方式</h3><p><strong>1. 应用array()函数声明数组</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$array</span> = <span class="keyword">array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">print_r(<span class="variable">$array</span>); <span class="comment">// array(1,2,3,4,5)</span></span><br></pre></td></tr></table></figure>
+<p><strong>2. 直接为数组元素赋值</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$array</span>[<span class="number">0</span>] = <span class="string">'a'</span>;</span><br><span class="line"><span class="variable">$array</span>[<span class="number">1</span>] = <span class="string">'b'</span>;</span><br><span class="line"><span class="variable">$array</span>[<span class="number">2</span>] = <span class="string">'c'</span>;</span><br><span class="line">print_r(<span class="variable">$array</span>); <span class="comment">// array('a', 'b', 'c')</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>用方括号语法访问数组单元<br>数组单元可以通过array[key]来访问</p>
+</blockquote>
+<p>Note:</p>
+<blockquote>
+<p>方括号和花括号可以互换使用来访问数组单元（例如 $array[42] 和 $array{42} 在上例中效果相同）。</p>
+</blockquote>
+<h3 id="PHP数组的key和value的限制条件">PHP数组的key和value的限制条件</h3><p><strong>键(key) 数组和对象不能被作为键名，坚持这么做会导致警告: illegal offset type。可是一个整数(integer)或字符串(string)。</strong></p>
+<p>此外，key会有如下的强制转换:</p>
+<ul>
+<li>包含有合法整型值得字符串会被转换为整型。例如键名 “8” 实际会被存储为8，但是 “08” 不会强制转换，因为其不是一个合法的十进制数值。</li>
+<li>浮点数也会被转换为整型，意味着其小数部分会被社区。例如键名8.7 实际会被存储为8。</li>
+<li>布尔值也会被转换为整型，即键名true会被存储为1而键名false会被存储为0。</li>
+<li>Null 会被转换为空字符串，及键名null实际会被存储为 “”。</li>
+</ul>
+<p><strong>值(value) 可以是任意类型的值。</strong></p>
+<p><strong>注意事项：</strong></p>
+<p><strong>1. 如果在数组中定义多个单元都使用了同一个键名，则只使用最后一个，之前的都被覆盖了。</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = <span class="keyword">array</span>(</span><br><span class="line">	<span class="number">1</span>   =&gt; <span class="string">'a'</span>,</span><br><span class="line">	<span class="string">'1'</span> =&gt; <span class="string">'b'</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">print_r(<span class="variable">$arr</span>); <span class="comment">// array(1=&gt; 'b');</span></span><br></pre></td></tr></table></figure>
+<p><strong>2. 如果对给出的值没有指定键名，则取当前最大的整数索引值，而新的键名将是该值加1。如果指定的键名已经有了值，则该值会被覆盖。</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = <span class="keyword">array</span>(</span><br><span class="line">	<span class="number">100</span>   =&gt; <span class="string">'a'</span>,</span><br><span class="line">	<span class="string">'b'</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">print_r(<span class="variable">$arr</span>); <span class="comment">// array( 100 =&gt; 'a', 101 =&gt; 'b');</span></span><br></pre></td></tr></table></figure>
+<p><strong>3. 视图访问一个未定义的数组键名与访问任何未定义变量一样，会导致E_NOTICE级别的错误信息，其结果为NULL</strong></p>
+<p>参考<a href="http://php.net/manual/zh/language.types.array.php" target="_blank" rel="external">http://php.net/manual/zh/language.types.array.php</a></p>
+<h3 id="PHP_预定义接口及用途">PHP 预定义接口及用途</h3><ul>
+<li>Traversable (遍历) 接口</li>
+<li>Iterator (迭代器) 接口</li>
+<li>IteratoAggregate (聚合式迭代器) 接口</li>
+<li>ArrayAccess (数组式访问) 接口</li>
+<li>Serializable (序列化) 接口</li>
+<li>Closure 匿名函数类 接口</li>
+</ul>
+<p><strong>1. Traversable 遍历接口及用途</strong></p>
+<blockquote>
+<p>检测一个类是否可以使用foreach进行遍历的接口。无法被单独实现的基本抽象接口。相反它必须由IteratorAggregate或Iterator接口实现</p>
+</blockquote>
+<p><em>这个接口没有任何方法，它的作用仅仅作为所有可遍历类的基本接口</em></p>
+<p><strong>用途, 其实它不是一个在PHP可以使用的接口, 内部类才可使用, 它的一个用途就是检测一个类是否可以遍历</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="variable">$class</span> <span class="keyword">instanceof</span> Traversable) &#123;</span><br><span class="line">    <span class="comment">//foreach</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="预定义数组">预定义数组</h3><ul>
+<li>$_GET</li>
+<li>$_POST</li>
+</ul>
+<p><a href="https://blog.twitter.com/developer" target="_blank" rel="external">https://blog.twitter.com/developer</a></p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/php/">php</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/12/18/base-md.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">chrome插件(extension)开发</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/02/22/python-2.html">
+        <span class="next-text nav-default">python基础 - list、tuple、dict和set</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2017
+    <span class="footer-author">Seymour.</span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
