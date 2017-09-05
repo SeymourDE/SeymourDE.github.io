@@ -169,11 +169,9 @@ figure {
  * Address differences between Firefox and other browsers.
  */
 hr {
-  margin-top: 52px;
-  margin-bottom: 42px;
-  display: block;
-  border: 0;
-  text-align: center; }
+  height: 1px;
+  border: none;
+  border-top: 1px solid #ccc; }
 
 /**
  * Contain overflow in all browsers.
@@ -360,7 +358,11 @@ th {
 
 sup {
   font-size: .6em;
-  opacity: .6; }
+  opacity: .8; }
+
+sub {
+  font-size: .6em;
+  opacity: .8; }
 
 p {
   text-align: justify; }
@@ -549,32 +551,32 @@ h6 {
     margin-bottom: 40px; }
     .post .post-content h1 {
       font-size: 1.3em;
-      font-weight: 400;
+      font-weight: 500;
       font-family: "Source Code Pro", "Monaco", "Menlo", "Consolas", "monospacesans-serif";
       margin-top: 1.2em; }
     .post .post-content h2 {
       font-size: 1.3em;
-      font-weight: 400;
+      font-weight: 500;
       font-family: "Source Code Pro", "Monaco", "Menlo", "Consolas", "monospacesans-serif";
       margin-top: 1.2em; }
     .post .post-content h3 {
       font-size: 1.3em;
-      font-weight: 400;
+      font-weight: 500;
       font-family: "Source Code Pro", "Monaco", "Menlo", "Consolas", "monospacesans-serif";
       margin-top: 1.2em; }
     .post .post-content h4 {
       font-size: 1.3em;
-      font-weight: 400;
+      font-weight: 500;
       font-family: "Source Code Pro", "Monaco", "Menlo", "Consolas", "monospacesans-serif";
       margin-top: 1.2em; }
     .post .post-content h5 {
       font-size: 1.3em;
-      font-weight: 400;
+      font-weight: 500;
       font-family: "Source Code Pro", "Monaco", "Menlo", "Consolas", "monospacesans-serif";
       margin-top: 1.2em; }
     .post .post-content h6 {
       font-size: 1.3em;
-      font-weight: 400;
+      font-weight: 500;
       font-family: "Source Code Pro", "Monaco", "Menlo", "Consolas", "monospacesans-serif";
       margin-top: 1.2em; }
     .post .post-content .headerlink:hover {
@@ -610,7 +612,7 @@ h6 {
       border-spacing: 0; }
       .post .post-content > table th, .post .post-content > table td {
         padding: 5px 15px;
-        border: 1px double #2b2b2b;
+        border: 1px double #bbb;
         text-align: left; }
     .post .post-content code, .post .post-content pre {
       padding: 7px;
