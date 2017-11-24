@@ -12,7 +12,7 @@
 
 
 
-  <meta name="description" content="数据结构与算法学习笔记之时间复杂度(1)"/>
+  <meta name="description" content="时间复杂度(1)"/>
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link rel="canonical" href="http://yoursite.com/2017/09/05/data-struct-complexity.html"/>
+<link rel="canonical" href="http://yoursite.com/2017/09/07/data-struct-complexity.html"/>
 
 
 <meta name="description" content="其实我在讨论算法的时候，总会说一下这个算法的时间复杂度是O(1)或者O(logN)，很多人看到这个大O这个符号一脸懵逼，那我就来简单说一下这个大O符号含义及如何计算的。
@@ -40,17 +40,17 @@
 首先了解一下函数比较，
 比较：f">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构与算法学习笔记之时间复杂度(1)">
-<meta property="og:url" content="http://yoursite.com/2017/09/05/data-struct-complexity.html">
+<meta property="og:title" content="时间复杂度(1)">
+<meta property="og:url" content="http://yoursite.com/2017/09/07/data-struct-complexity.html">
 <meta property="og:site_name" content="Seymour">
 <meta property="og:description" content="其实我在讨论算法的时候，总会说一下这个算法的时间复杂度是O(1)或者O(logN)，很多人看到这个大O这个符号一脸懵逼，那我就来简单说一下这个大O符号含义及如何计算的。
 大O符号的数学基础在我们实际应用中，计算某个问题的精确解可能非常困难，比如物理设备的差异，网络环境的差异等等。此时，会有一个可行性方案是不直接寻找精确解，转而寻找可接受的估值(estimate)。
 首先了解一下函数比较，
 比较：f">
 <meta property="og:image" content="http://yoursite.com/images/data-struct-complexity/post-2.png">
-<meta property="og:updated_time" content="2017-09-05T13:58:00.000Z">
+<meta property="og:updated_time" content="2017-09-11T11:45:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据结构与算法学习笔记之时间复杂度(1)">
+<meta name="twitter:title" content="时间复杂度(1)">
 <meta name="twitter:description" content="其实我在讨论算法的时候，总会说一下这个算法的时间复杂度是O(1)或者O(logN)，很多人看到这个大O这个符号一脸懵逼，那我就来简单说一下这个大O符号含义及如何计算的。
 大O符号的数学基础在我们实际应用中，计算某个问题的精确解可能非常困难，比如物理设备的差异，网络环境的差异等等。此时，会有一个可行性方案是不直接寻找精确解，转而寻找可接受的估值(estimate)。
 首先了解一下函数比较，
@@ -79,7 +79,7 @@
 
 
 
-    <title> 数据结构与算法学习笔记之时间复杂度(1) - Seymour </title>
+    <title> 时间复杂度(1) - Seymour </title>
   </head>
 
   <body>
@@ -134,12 +134,12 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          数据结构与算法学习笔记之时间复杂度(1)
+          时间复杂度(1)
         
       </h1>
 
       <time class="post-time">
-          Sep 5 2017
+          Sep 7 2017
       </time>
     </header>
 
@@ -159,6 +159,7 @@
 <p>定义：f,g: N -&gt; R是两个自然数到实数的单变量方程f(n)=O(g(n))，表示存在常数n<sub>0</sub>和C，使得对所有n≥n<sub>0</sub>，不等式|f(n)|≤C·g(n)成立。</p>
 </blockquote>
 <p>对于一个<strong>f(n)=O(g(n))</strong>来说，其实含义就是函数f(n)的增长率小于等于(≤)函数g(n)的增长率。</p>
+<p>其实大O表示法，表达函数增长率上限。</p>
 <p>举个栗子，n<sup>3</sup>增长比n<sup>2</sup>快，因此我们可以说n<sup>2</sup>=O(n<sup>3</sup>)。</p>
 <p>类似的符号，还有Ω(omega)，Θ(theta)，o(小o)。</p>
 <p><strong>f(n) = Ω(g(n))</strong>，就是说函数f(n)的增长率大于等于(≥)函数g(n)的增长率。<br><strong>f(n) = Θ(g(n))</strong>，就是说函数f(n)的增长率等于函数g(n)的增长率。<br><strong>f(n) = o(g(n))</strong>，就是说函数f(n)的增长率小于(＜)函数g(n)的增长率。</p>
@@ -263,6 +264,12 @@
         
         
   <nav class="post-nav">
+    
+      <a class="prev" href="/2017/09/10/data-struct-adt.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">抽象数据类型ADT(2)</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
     
     
   </nav>

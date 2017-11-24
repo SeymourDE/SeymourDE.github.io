@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="线性表之链表"/>
+
+
+
+
+  <meta name="keywords" content="数据结构与算法," />
+
+
+
+
+
+  <link rel="alternative" href="/default" title="Seymour" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=10001" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2017/09/13/data-struct-singly-linked-list.html"/>
+
+
+<meta name="description" content="链表
+单链表(Singly Linked List)是由各个内存结构通过一个Next指针链接在一起组成，每一个内存结构都存在后继内存结构[链尾除外]，内存结构由数据域和Next指针域组成。
+
+基本概念表头节点，链表中的第一个节点, 包含指向第一个数据元素的指针以及链表自身的一些信息。数据节点, 链表中代表数据元素的节点, 包含指向下一个数据元素的指针和数据元素的信息。尾节点, 链表中的最后一个数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性表之链表">
+<meta property="og:url" content="http://yoursite.com/2017/09/13/data-struct-singly-linked-list.html">
+<meta property="og:site_name" content="Seymour">
+<meta property="og:description" content="链表
+单链表(Singly Linked List)是由各个内存结构通过一个Next指针链接在一起组成，每一个内存结构都存在后继内存结构[链尾除外]，内存结构由数据域和Next指针域组成。
+
+基本概念表头节点，链表中的第一个节点, 包含指向第一个数据元素的指针以及链表自身的一些信息。数据节点, 链表中代表数据元素的节点, 包含指向下一个数据元素的指针和数据元素的信息。尾节点, 链表中的最后一个数据">
+<meta property="og:image" content="http://yoursite.com/images/data-struct-singly-linked-list/head-linked-list.png">
+<meta property="og:image" content="http://yoursite.com/images/data-struct-singly-linked-list/no-head-linked-list.png">
+<meta property="og:updated_time" content="2017-09-25T23:33:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="线性表之链表">
+<meta name="twitter:description" content="链表
+单链表(Singly Linked List)是由各个内存结构通过一个Next指针链接在一起组成，每一个内存结构都存在后继内存结构[链尾除外]，内存结构由数据域和Next指针域组成。
+
+基本概念表头节点，链表中的第一个节点, 包含指向第一个数据元素的指针以及链表自身的一些信息。数据节点, 链表中代表数据元素的节点, 包含指向下一个数据元素的指针和数据元素的信息。尾节点, 链表中的最后一个数据">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=10001" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> 线性表之链表 - Seymour </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">Seymour</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/github">
+                            
+                            
+                                Github
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          线性表之链表
+        
+      </h1>
+
+      <time class="post-time">
+          Sep 13 2017
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h3 id="链表">链表</h3><blockquote>
+<p><strong>单链表</strong>(Singly Linked List)是由各个内存结构通过一个Next指针链接在一起组成，每一个内存结构都存在后继内存结构[链尾除外]，内存结构由数据域和Next指针域组成。</p>
+</blockquote>
+<h3 id="基本概念">基本概念</h3><p><strong>表头节点</strong>，链表中的第一个节点, 包含指向第一个数据元素的指针以及链表自身的一些信息。<br><strong>数据节点</strong>, 链表中代表数据元素的节点, 包含指向下一个数据元素的指针和数据元素的信息。<br><strong>尾节点</strong>, 链表中的最后一个数据节点，其下一个元素指针为空，表示无后继元素。</p>
+<h3 id="单链表实现">单链表实现</h3><p>单链表的实现，常见的有<strong>带头节点</strong>和<strong>不带头节点</strong>的单链表。</p>
+<p>所谓带头节点的单链表，它不是实际的节点，不是用来存储数据的，可以存储一些全局变量，比如链表的长度等的，根据实际需要去存储，一般来说，用头节点来表示整个链表，如下图。</p>
+<p><img src="/images/data-struct-singly-linked-list/head-linked-list.png" alt=""></p>
+<p>不带头节点的单链表，链表的第一个节点就是数据节点，可以自由的删除和插入，如下图，</p>
+<p><img src="/images/data-struct-singly-linked-list/no-head-linked-list.png" alt=""></p>
+<p>所以一般来说，单链表就是带头节点的单链表。</p>
+<h3 id="C语言实现">C语言实现</h3><p>首先定义数据节点</p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">struct <span class="keyword">Node</span><span class="identifier"></span><span class="title">;	// 定义数据节点结构体类型。</span><br><span class="line">typedef</span> struct <span class="keyword">Node</span><span class="identifier"> </span><span class="title">*PtrToNode</span>;	// 数据节点的指针类型</span><br><span class="line">typedef PtrToNode Position;	// 定义链表中数据节点的指针</span><br><span class="line"></span><br><span class="line">// 定义链表中元素的结构</span><br><span class="line">struct <span class="keyword">Node</span><span class="identifier"> </span><span class="title">&#123;</span><br><span class="line">	int</span> data;</span><br><span class="line">	Position next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>定义头结点</p>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typeof</span> PtrToNode SinglyList;	<span class="comment">// 这里头节点和数据节点相同结构，但是头结点依然不存在任何链表中的数据。</span></span><br></pre></td></tr></table></figure>
+<h4 id="链表相关操作">链表相关操作</h4><p>1. 初始化链表头结点</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function">SinglyList <span class="title">MakeEmpty</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	SinglyList <span class="built_in">list</span> = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> Node));</span><br><span class="line">	<span class="built_in">list</span>-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">list</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2. 判断链表是否为空</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsEmpty</span><span class="params">(SinglyList <span class="built_in">list</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">list</span>-&gt;next == <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3. 插入数据到链表中</p>
+<figure class="highlight lasso"><table><tr><td class="code"><pre><span class="line"><span class="literal">void</span> Insert(int <span class="built_in">data</span>, SinglyList <span class="built_in">list</span>, Position pos)</span><br><span class="line">&#123;</span><br><span class="line">	Position new_node = malloc(sizeof(struct Node));</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (new_node == <span class="built_in">NULL</span>) &#123;</span><br><span class="line">		printf(<span class="string">"Out Of Space\n"</span>);</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		new_node<span class="subst">-&gt;</span><span class="built_in">data</span> = <span class="built_in">data</span>;</span><br><span class="line">		new_node<span class="subst">-&gt;</span>next = pos<span class="subst">-&gt;</span>next;</span><br><span class="line">		pos<span class="subst">-&gt;</span>next = new_node;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4. 查找链表中某一个元素</p>
+<figure class="highlight perl"><table><tr><td class="code"><pre><span class="line">Position Find(<span class="keyword">int</span> data, SinglyList list)</span><br><span class="line">&#123;</span><br><span class="line">	Position <span class="keyword">pos</span>;</span><br><span class="line">	<span class="keyword">pos</span> = list-&gt;<span class="keyword">next</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="keyword">pos</span>-&gt;<span class="keyword">next</span> != NULL &amp;&amp; <span class="keyword">pos</span>-&gt;data != data) &#123;</span><br><span class="line">		<span class="keyword">pos</span> = <span class="keyword">pos</span>-&gt;<span class="keyword">next</span>;</span><br><span class="line">		<span class="keyword">printf</span>(<span class="string">"<span class="variable">%d</span> \n"</span>, <span class="keyword">pos</span>-&gt;data);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">pos</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考</p>
+<hr>
+<p><a href="http://www.learn-c.org/en/Linked_lists" target="_blank" rel="external">http://www.learn-c.org/en/Linked_lists</a><br><a href="http://blog.jobbole.com/94423/" target="_blank" rel="external">数据结构之链表与数组（1）：数组和链表的简介</a><br><a href="http://blog.jobbole.com/94426/" target="_blank" rel="external">数据结构之链表与数组（2）：单向链表上的简单操作问题</a><br><a href="https://akaedu.github.io/book/ch26s01.html" target="_blank" rel="external">https://akaedu.github.io/book/ch26s01.html</a><br><a href="http://wuchong.me/blog/2014/03/25/interview-link-questions/" target="_blank" rel="external">面试精选：链表问题集锦</a><br><a href="http://www.cppblog.com/cxiaojia/archive/2012/07/31/185760.html" target="_blank" rel="external">http://www.cppblog.com/cxiaojia/archive/2012/07/31/185760.html</a><br><a href="http://btechsmartclass.com/DS/U1_T10.html" target="_blank" rel="external">http://btechsmartclass.com/DS/U1_T10.html</a><br><a href="http://www.jianshu.com/p/73d56c3d228c?utm_source=tuicool&amp;utm_medium=referrals" target="_blank" rel="external">http://www.jianshu.com/p/73d56c3d228c?utm_source=tuicool&amp;utm_medium=referral</a></p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构与算法/">数据结构与算法</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/09/25/c-note-time.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">C语言函数库之时间库</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2017/09/13/data-struct-singly-linked-list1.html">
+        <span class="next-text nav-default">链表之单链表(4)</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2017
+    <span class="footer-author">Seymour.</span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=10001"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=10001"></script>
+
+  </body>
+</html>

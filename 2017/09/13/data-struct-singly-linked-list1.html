@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="链表之单链表(4)"/>
+
+
+
+
+  <meta name="keywords" content="数据结构与算法," />
+
+
+
+
+
+  <link rel="alternative" href="/default" title="Seymour" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=10001" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2017/09/13/data-struct-singly-linked-list1.html"/>
+
+
+<meta name="description" content="单链表
+单链表(Singly Linked List)是由各个内存结构通过一个Next指针链接在一起组成，每一个内存结构都存在后继内存结构[链尾除外]，内存结构由数据域和Next指针域组成。
+
+参考
+
+http://www.learn-c.org/en/Linked_lists数据结构之链表与数组（1）：数组和链表的简介数据结构之链表与数组（2）：单向链表上的简单操作问题https://akaed">
+<meta property="og:type" content="article">
+<meta property="og:title" content="链表之单链表(4)">
+<meta property="og:url" content="http://yoursite.com/2017/09/13/data-struct-singly-linked-list1.html">
+<meta property="og:site_name" content="Seymour">
+<meta property="og:description" content="单链表
+单链表(Singly Linked List)是由各个内存结构通过一个Next指针链接在一起组成，每一个内存结构都存在后继内存结构[链尾除外]，内存结构由数据域和Next指针域组成。
+
+参考
+
+http://www.learn-c.org/en/Linked_lists数据结构之链表与数组（1）：数组和链表的简介数据结构之链表与数组（2）：单向链表上的简单操作问题https://akaed">
+<meta property="og:updated_time" content="2017-09-25T23:33:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="链表之单链表(4)">
+<meta name="twitter:description" content="单链表
+单链表(Singly Linked List)是由各个内存结构通过一个Next指针链接在一起组成，每一个内存结构都存在后继内存结构[链尾除外]，内存结构由数据域和Next指针域组成。
+
+参考
+
+http://www.learn-c.org/en/Linked_lists数据结构之链表与数组（1）：数组和链表的简介数据结构之链表与数组（2）：单向链表上的简单操作问题https://akaed">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=10001" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> 链表之单链表(4) - Seymour </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">Seymour</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/github">
+                            
+                            
+                                Github
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          链表之单链表(4)
+        
+      </h1>
+
+      <time class="post-time">
+          Sep 13 2017
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h3 id="单链表">单链表</h3><blockquote>
+<p><strong>单链表</strong>(Singly Linked List)是由各个内存结构通过一个Next指针链接在一起组成，每一个内存结构都存在后继内存结构[链尾除外]，内存结构由数据域和Next指针域组成。</p>
+</blockquote>
+<p>参考</p>
+<hr>
+<p><a href="http://www.learn-c.org/en/Linked_lists" target="_blank" rel="external">http://www.learn-c.org/en/Linked_lists</a><br><a href="http://blog.jobbole.com/94423/" target="_blank" rel="external">数据结构之链表与数组（1）：数组和链表的简介</a><br><a href="http://blog.jobbole.com/94426/" target="_blank" rel="external">数据结构之链表与数组（2）：单向链表上的简单操作问题</a><br><a href="https://akaedu.github.io/book/ch26s01.html" target="_blank" rel="external">https://akaedu.github.io/book/ch26s01.html</a><br><a href="http://wuchong.me/blog/2014/03/25/interview-link-questions/" target="_blank" rel="external">面试精选：链表问题集锦</a><br><a href="http://www.cppblog.com/cxiaojia/archive/2012/07/31/185760.html" target="_blank" rel="external">http://www.cppblog.com/cxiaojia/archive/2012/07/31/185760.html</a><br><a href="http://btechsmartclass.com/DS/U1_T10.html" target="_blank" rel="external">http://btechsmartclass.com/DS/U1_T10.html</a><br><a href="http://www.jianshu.com/p/73d56c3d228c?utm_source=tuicool&amp;utm_medium=referrals" target="_blank" rel="external">http://www.jianshu.com/p/73d56c3d228c?utm_source=tuicool&amp;utm_medium=referral</a><br><a href="http://www.tuicool.com/articles/BJVRNz3" target="_blank" rel="external">http://www.tuicool.com/articles/BJVRNz3</a></p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构与算法/">数据结构与算法</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/09/13/data-struct-singly-linked-list.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">线性表之链表</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2017/09/11/data-struct-linear-list.html">
+        <span class="next-text nav-default">线性结构(3)</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2017
+    <span class="footer-author">Seymour.</span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=10001"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=10001"></script>
+
+  </body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="抽象数据类型ADT(2)"/>
+
+
+
+
+  <meta name="keywords" content="数据结构与算法," />
+
+
+
+
+
+  <link rel="alternative" href="/default" title="Seymour" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=10001" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2017/09/10/data-struct-adt.html"/>
+
+
+<meta name="description" content="数据结构是什么
+数据结构(Data Structure)是指计算机程序中所操作的对象，数据以及数据元素之间的相互关系和运算。
+
+在任何问题中，数据元素之间都不会是独立的，总是存在着这样或那样的关系，这种数据元素之间的关系也称作结构。数据结构包含以下3个方面的内容，
+1. 数据的逻辑结构。
+数据的逻辑结构即数据元素之间的逻辑关系。它只抽象的反映数据元素集合的结构，而不管其存储方式。一般分为两大类，分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="抽象数据类型ADT(2)">
+<meta property="og:url" content="http://yoursite.com/2017/09/10/data-struct-adt.html">
+<meta property="og:site_name" content="Seymour">
+<meta property="og:description" content="数据结构是什么
+数据结构(Data Structure)是指计算机程序中所操作的对象，数据以及数据元素之间的相互关系和运算。
+
+在任何问题中，数据元素之间都不会是独立的，总是存在着这样或那样的关系，这种数据元素之间的关系也称作结构。数据结构包含以下3个方面的内容，
+1. 数据的逻辑结构。
+数据的逻辑结构即数据元素之间的逻辑关系。它只抽象的反映数据元素集合的结构，而不管其存储方式。一般分为两大类，分">
+<meta property="og:image" content="http://yoursite.com/images/data-struct-adt/post-1.png">
+<meta property="og:updated_time" content="2017-09-11T11:45:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="抽象数据类型ADT(2)">
+<meta name="twitter:description" content="数据结构是什么
+数据结构(Data Structure)是指计算机程序中所操作的对象，数据以及数据元素之间的相互关系和运算。
+
+在任何问题中，数据元素之间都不会是独立的，总是存在着这样或那样的关系，这种数据元素之间的关系也称作结构。数据结构包含以下3个方面的内容，
+1. 数据的逻辑结构。
+数据的逻辑结构即数据元素之间的逻辑关系。它只抽象的反映数据元素集合的结构，而不管其存储方式。一般分为两大类，分">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=10001" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> 抽象数据类型ADT(2) - Seymour </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">Seymour</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/github">
+                            
+                            
+                                Github
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          抽象数据类型ADT(2)
+        
+      </h1>
+
+      <time class="post-time">
+          Sep 10 2017
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h3 id="数据结构是什么">数据结构是什么</h3><blockquote>
+<p>数据结构(Data Structure)是指计算机程序中所操作的对象，数据以及数据元素之间的相互关系和运算。</p>
+</blockquote>
+<p>在任何问题中，数据元素之间都不会是独立的，总是存在着这样或那样的关系，这种数据元素之间的关系也称作结构。数据结构包含以下3个方面的内容，</p>
+<p><strong>1. 数据的逻辑结构。</strong></p>
+<p>数据的逻辑结构即数据元素之间的逻辑关系。它只抽象的反映数据元素集合的结构，而不管其存储方式。一般分为两大类，分别是<strong>线性结构</strong>和<strong>非线性结构</strong>。</p>
+<ul>
+<li>线性结构包含，线性表、栈、队列、串、数组和文件。</li>
+<li>非线性结构包括树(二叉树，Huffman树等)、图(有向图，无向图等)、集合等。</li>
+</ul>
+<p><img src="/images/data-struct-adt/post-1.png" alt=""></p>
+<p><strong>2. 数据的存储结构</strong></p>
+<p>数据的存储结构，即数据及数据元素之间的关系在计算机内存中的表示，也称作数据的物理结构或存储影响。主要有顺序存储、链式存储、索引存储和散列存储等。索引存储方式和散列存储方式，通常是为了检索方便所采用的存储表示方法。</p>
+<p><strong>3. 数据的运算及实现</strong></p>
+<p>程序中的数据运算是定义在数据的逻辑结构上的运算，但运算的实现要在响应的存储结构上进行。常用的运算有检索、插入、删除、更新、排序等。</p>
+<h3 id="抽象数据类型(ADT)">抽象数据类型(ADT)</h3><p>抽象的本质就是抽取反映问题本质的东西，忽略掉非本质的细节。数据类型是对同一数据对象及其在该数据对象上的一组操作的抽象，抽象的结果是是把用户不必了解的一切细节都封装在类型之中，对使用数据类型的用户来说，不需要了解该数据类型在计算机内部如何表示的，也不需要知道器操作是如何实现的，只需要集中精力考虑所要求解的问题应该如何去解决。</p>
+<blockquote>
+<p>抽象数据类型(Abstract Data Type, ADT)是指一个数据类型以及定义在该数据模型上的一组操作。用户进行软件系统设计时从问题的数据模型中抽象出来的逻辑数据结构和逻辑数据结构上运算，而不考虑计算机的具体存储结构和运算的具体实现算法。</p>
+</blockquote>
+<p>1. 抽象数据类型可以用三元组:<strong>ADT = (D，S，P)</strong>。<br>D:数据对象<br>S:D上的关系集<br>P:D上的操作集</p>
+<p>ADT定义格式:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">ADT 抽象数据类型名&#123;</span><br><span class="line">	数据对象: <span class="tag">&lt;<span class="title">数据对象的定义</span>&gt;</span></span><br><span class="line">	数据关系: <span class="tag">&lt;<span class="title">数据关系的定义</span>&gt;</span></span><br><span class="line">	基本操作: <span class="tag">&lt;<span class="title">基本操作的定义</span>&gt;</span></span><br><span class="line">&#125; ADT抽象数据类型名</span><br></pre></td></tr></table></figure>
+<p>2. 抽象数据类型可以用二元组: <strong>&lt;数据对象D, 数据操作P&gt;</strong>。</p>
+<p>先要定义逻辑结构，在定义运算。<strong>逻辑结构</strong>,数据对象及其关系;<strong>运算</strong>,数据操作(在C语言中相当于函数)。</p>
+<p>例如线性表的ADT</p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">ADT 线性表(<span class="keyword">List</span>)</span><br><span class="line">Data</span><br><span class="line">    线性表的数据对象集合为&#123;a1, a2, ......, <span class="keyword">an</span>&#125;，每个元素的类型均为DataType。</span><br><span class="line">    其中，除第一个元素a1外，每一个元素有且只有一个直接前驱元素，</span><br><span class="line">    除了最后一个元素<span class="keyword">an</span>外，每一个元素有且只有一个直接后继元素。</span><br><span class="line">    数据元素之间的关系是一对一的关系。</span><br><span class="line">Operation</span><br><span class="line">    InitList(*<span class="keyword">L</span>):          初始化操作，建立一个空的线性表<span class="keyword">L</span>。</span><br><span class="line">    ListEmpty(<span class="keyword">L</span>):          若线性表为空，返回true，否则返回false。</span><br><span class="line">    ClearList(*<span class="keyword">L</span>):         将线性表清空。</span><br><span class="line">    GetElem(<span class="keyword">L</span>, i, *<span class="keyword">e</span>):     将线性表<span class="keyword">L</span>中的第i个位置元素值返回给<span class="keyword">e</span>。</span><br><span class="line">    LocateElem(<span class="keyword">L</span>, <span class="keyword">e</span>):      在线性表<span class="keyword">L</span>中查找与给定值<span class="keyword">e</span>相等的元素，</span><br><span class="line">                           如果查找成功，返回该元素在表中序号表示成功；</span><br><span class="line">    ListInsert(*<span class="keyword">L</span>,i,<span class="keyword">e</span>):    在<span class="keyword">L</span>的第i个位置插入新元素<span class="keyword">e</span>。</span><br><span class="line">    ListDelete(*<span class="keyword">L</span>,i,*<span class="keyword">e</span>):   删除<span class="keyword">L</span>中的第i个元素，并用<span class="keyword">e</span>返回其值。</span><br><span class="line">    ListLength(<span class="keyword">L</span>):         返回<span class="keyword">L</span>中的元素个数</span><br><span class="line">endADT</span><br></pre></td></tr></table></figure>
+<p>参考</p>
+<hr>
+<p><a href="http://blog.csdn.net/IT_DS/article/details/50499383" target="_blank" rel="external">小菜一步一步学数据结构之(一)基本概念和术语</a><br><a href="https://books.google.com/books?id=XCOvNW7esroC&amp;pg=PA26&amp;lpg=PA26&amp;dq=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BE%8B%E5%AD%90&amp;source=bl&amp;ots=0AwCZSmLYM&amp;sig=Un8-rp0xZN2XyXZbBlR6kFwjbBM&amp;hl=en&amp;sa=X&amp;ved=0ahUKEwixt4mFs5XWAhVEI5QKHY_uCgAQ6AEIQTAE#v=onepage&amp;q&amp;f=false" target="_blank" rel="external">算法与数据结构</a></p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构与算法/">数据结构与算法</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/09/11/data-struct-linear-list.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">线性结构(3)</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2017/09/07/data-struct-complexity.html">
+        <span class="next-text nav-default">时间复杂度(1)</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2017
+    <span class="footer-author">Seymour.</span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=10001"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=10001"></script>
+
+  </body>
+</html>
