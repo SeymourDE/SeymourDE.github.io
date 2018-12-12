@@ -10,7 +10,7 @@
   
   <title>
     
-      C语言函数库之时间库 | Seymour
+      RabbitMQ 学习之如何安装 | Seymour
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -126,8 +126,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>C语言函数库之时间库</h2>
-  <p class="post-date">2017-09-25</p>
+  <h2>RabbitMQ 学习之如何安装</h2>
+  <p class="post-date">2018-10-19</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -135,48 +135,53 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>C语言中获取和操作日期和时间信息的函数都定义在time.h文件中。</p>
-<p>在time.h中，定义四个变量类型，</p>
+    <section class="markdown-content"><h1 id="RabbitMQ-学习"><a href="#RabbitMQ-学习" class="headerlink" title="RabbitMQ 学习"></a>RabbitMQ 学习</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>优点：</p>
 <ul>
-<li>size_t 是无符号整数类型(unsigned int)，它是 sizeof 关键字的结果。  </li>
-<li>time_t 这是一个适合存储日历时间类型。</li>
-<li>clock_t 这是一个适合存储处理器时间的类型。  </li>
-<li>struct tm 这是一个用来保存时间和日期的结构 。</li>
+<li>支持消息持久化、支持消息确认机制、灵活的任务分发机制等，支持功能非常丰富；</li>
+<li>可靠性高；</li>
+<li>集群扩展很容易，并且可以通过增加节点实现成倍的性能提升；</li>
+<li>WEB管理和监控，有些技术癌更喜欢命令行界面，但WEB管理为后期运维提供很大的便利。 </li>
 </ul>
-<p>struct tm 的结构。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">tm</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> tm_sec;  <span class="comment">//代表目前秒数, 正常范围为0-59, 但允许至61 秒</span></span><br><span class="line">    <span class="keyword">int</span> tm_min;  <span class="comment">//代表目前分数, 范围0-59</span></span><br><span class="line">    <span class="keyword">int</span> tm_hour;  <span class="comment">//从午夜算起的时数, 范围为0-23</span></span><br><span class="line">    <span class="keyword">int</span> tm_mday;  <span class="comment">//目前月份的日数, 范围01-31</span></span><br><span class="line">    <span class="keyword">int</span> tm_mon;  <span class="comment">//代表目前月份, 从一月算起, 范围从0-11</span></span><br><span class="line">    <span class="keyword">int</span> tm_year;  <span class="comment">//从1900 年算起至今的年数</span></span><br><span class="line">    <span class="keyword">int</span> tm_wday;  <span class="comment">//一星期的日数, 从星期一算起, 范围为0-6</span></span><br><span class="line">    <span class="keyword">int</span> tm_yday;  <span class="comment">//从今年1 月1 日算起至今的天数, 范围为0-365</span></span><br><span class="line">    <span class="keyword">int</span> tm_isdst;  <span class="comment">//日光节约时间的旗标</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>在time.h中，定义两个宏，</p>
+<p>劣势： </p>
 <ul>
-<li>NULL 空指针常量。</li>
-<li>CLOCKS_PER_SEC 每秒的处理器时钟个数。</li>
+<li>在kafka和zero面前性能被虐成渣</li>
 </ul>
-<p>定义的函数</p>
-<p><strong>clock()</strong>, 处理器时钟所使用的时间。<br><strong>difftime()</strong>, 计算两个时刻之间的差。<br><strong>mktime()</strong>, 将时间结构数据转换成经过的秒数(将struct tm转换成time_t)。<br><strong>time()</strong>, 取得目前的时间。<br>转换函数<br><strong>asctime()</strong>, 将时间和日期以字符串格式表示。<br><strong>ctime()</strong>, 把日期和时间转换为字符串。<br><strong>gmtime()</strong>, 把日期和时间转换为(UTC)时间。<br><strong>localtime()</strong>, 取得当地目前时间和日期。<br><strong>strftime</strong>, 将时间格式化。</p>
-<h3 id="时间简介"><a href="#时间简介" class="headerlink" title="时间简介"></a>时间简介</h3><p><strong>24时区</strong></p>
-<p><strong>格林威治标准时间(GMT)</strong></p>
-<p>格林威治标准时间(Greenwich Mean Time，简称G.M.T.)，十七世纪，格林威治皇家天文台为了海上霸权的扩张计画而进行天体观测。1675年旧皇家观测所(Old Royal Observatory) 正式成立，到了1884年决定以通过格林威治的子午线作为划分地球东西两半球的经度零度。观测所门口墙上有一个标志24小时的时钟，显示当下的时间，对全球而言，这里所设定的时间是世界时间参考点，全球都以格林威治的时间作为标准来设定时间。</p>
-<p><strong>世界协调时间UTC</strong></p>
-<p>UTC指的是Coordinated Universal Time－ 世界协调时间（又称世界标准时间、世界统一时间），是经过平均太阳时(以格林威治时间GMT为准)、地轴运动修正后的新时标以及以「秒」为单位的国际原子时所综合精算而成的时间，计算过程相当严谨精密，因此若以「世界标准时间」的角度来说，UTC比GMT来得更加精准。其误差值必须保持在0.9秒以内，若大于0.9秒则由位于巴黎的国际地球自转事务中央局发布闰秒，使UTC与地球自转周期一致。所以基本上UTC的本质强调的是比GMT更为精确的世界时间标准，不过对于现行表款来说，GMT与UTC的功能与精确度是没有差别的。</p>
-<p>我们国家已北京时间为准，就是在东八区，UTC+8。</p>
-<p>两者的关系：<strong>UTC = GMT +/- 0.9 s </strong>, 因此 UTC 间中需要进行 “闰秒” 以控制两者相差。 </p>
-<p><strong>日期时间表示方法</strong><br>1. 日期表示法：年为4位数，月为2位数，日为2位数，例如，2014-09-09或20140909<br>2. 日历星期：用两位数表示本年内第几个日历星期, 星期：从星期一开始，星期日结束，共7天【在西方，星期日为一周的第一天】<br>3. 时间表示法：小时，分，秒都用2位数表示，对UTC时间最后加一个大写字母Z，其他时区用实际实际那加时差来表示，如UTC时间下午2点30分5秒，表示为14:30:05Z或143005Z，当时的背景时间表示为22:30:05+08:00或223005+0800，也可简化为223005+08。<br>4. 日期时间组合表示法：合并表示时，要在时间前面加以大写字母T，如：2014-09-09T14:30:05+08:00或20140909T143005+08。</p>
-<h4 id="asctime"><a href="#asctime" class="headerlink" title="asctime"></a>asctime</h4><blockquote>
-<p>char<em> asctime (const struct tm </em> timeptr);</p>
+<p>如果你希望使用一个可靠性高、功能强大、易于管理的消息队列系统那么就选择 <code>RabbitMQ</code> 吧，如果你想用一个性能高，但偶尔丢点数据不是很在乎可以使用 <code>kafka</code> 或者 <code>zeroMQ</code>。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装-RabbitMQ-Server"><a href="#安装-RabbitMQ-Server" class="headerlink" title="安装 RabbitMQ Server"></a>安装 RabbitMQ Server</h3><p>先安装<code>erlang</code>，</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yum install erlang</span></span><br></pre></td></tr></table></figure>
+<p>Centos 7 安装 rabbitmq-server</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">$ wget http:<span class="comment">//www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-3.6.15-1.el6.noarch.rpm</span></span><br><span class="line">$ yum install rabbitmq-server-<span class="number">3.6</span>.<span class="number">15</span>-<span class="number">1</span><span class="selector-class">.el6</span><span class="selector-class">.noarch</span><span class="selector-class">.rpm</span></span><br></pre></td></tr></table></figure>
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><p>配置为守护进程随系统自动启动，root权限下执行:</p>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">chkconfig rabbitmq-server <span class="keyword">on</span></span><br></pre></td></tr></table></figure>
+<p>启动rabbitMQ服务<br><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">/sbin<span class="built_in">/service </span>rabbitmq-server start</span><br></pre></td></tr></table></figure></p>
+<p>开启图形界面支持：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> rabbitmq-plugins <span class="built_in">enable</span> rabbitmq_managemen</span></span><br></pre></td></tr></table></figure>
+<p>添加用户</p>
+<figure class="highlight nsis"><table><tr><td class="code"><pre><span class="line">rabbitmqctl add_user <span class="literal">admin</span> <span class="literal">admin</span></span><br><span class="line">rabbitmqctl set_user_tags <span class="literal">admin</span> administrator</span><br><span class="line">rabbitmqctl set_permissions -p / <span class="literal">admin</span> <span class="string">".*"</span> <span class="string">".*"</span> <span class="string">".*"</span></span><br></pre></td></tr></table></figure>
+<p>浏览器打开 “http://{ip}:15672″， 用帐号“admin”, 密码“admin” 就可以登录了，</p>
+<blockquote>
+<p>注意 localhost 换成实际地址或 ip，rabbitmq 默认提供了 “guest” 帐号，但是只能在 localhost 域名下登录，</p>
 </blockquote>
-<h4 id="ctime"><a href="#ctime" class="headerlink" title="ctime"></a>ctime</h4><blockquote>
-<p>char<em> ctime (const time_t </em> timer);</p>
+<h2 id="PHP-连接-RabbitMQ服务"><a href="#PHP-连接-RabbitMQ服务" class="headerlink" title="PHP 连接 RabbitMQ服务"></a>PHP 连接 RabbitMQ服务</h2><h3 id="安装-amqp-扩展"><a href="#安装-amqp-扩展" class="headerlink" title="安装 amqp 扩展"></a>安装 amqp 扩展</h3><p>先安装 librabbitmq 库</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">wget https:<span class="regexp">//gi</span>thub.com<span class="regexp">/alanxz/</span>rabbitmq-c<span class="regexp">/releases/</span>download<span class="regexp">/v0.7.1/</span>rabbitmq-c-<span class="number">0.7</span>.<span class="number">1</span>.tar.gz</span><br><span class="line"></span><br><span class="line">tar -xzvf   rabbitmq-c-<span class="number">0.7</span>.<span class="number">1</span>.tar.gz</span><br><span class="line"></span><br><span class="line">cd rabbitmq-c-<span class="number">0.7</span>.<span class="number">1</span></span><br><span class="line"></span><br><span class="line">.<span class="regexp">/configure --prefix=/u</span>sr<span class="regexp">/local/</span> rabbitmq-c</span><br><span class="line">make&amp;&amp;make install</span><br></pre></td></tr></table></figure>
+<p>然后在安装 amqp 扩展库</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">$ pecl install amqp</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">Set</span> the path <span class="keyword">to</span> librabbitmq install<span class="built_in"> prefix </span>[autodetect] :</span><br></pre></td></tr></table></figure>
+<p>如果是第二种方法，就需要将安装 rabbitmq-c 的目录输入进去 /usr/local/rabbitmq-c 然后按回车。</p>
+<blockquote>
+<p>直接使用yum 安装 librabbitmq , 该方法有可能行不通。</p>
 </blockquote>
-<h4 id="gmtime"><a href="#gmtime" class="headerlink" title="gmtime"></a>gmtime</h4><blockquote>
-<p>struct tm <em> gmtime (const time_t </em> timer);把日期和时间转换为(GMT)时间。</p>
-</blockquote>
+<h3 id="Composer-包"><a href="#Composer-包" class="headerlink" title="Composer 包"></a>Composer 包</h3><p>如果不想以扩展的方式安装，Composer 中也有 <code>php-amqplib</code> 这样的包连接 RabbitMQ 服务，GitHub: <a href="https://github.com/php-amqplib/php-amqplib" target="_blank" rel="noopener">https://github.com/php-amqplib/php-amqplib</a>。</p>
+<p>只需要执行以下命令即可，</p>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">$ composer <span class="keyword">require</span> php-amqplib/php-amqplib</span><br></pre></td></tr></table></figure>
+<p>该包依赖于 <code>bcmath</code> 这个扩展。</p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#" >
-    <span class="tag-code"></span>
+  <a href="/tags#RabbitMQ" >
+    <span class="tag-code">RabbitMQ</span>
   </a>
 
       </div>
@@ -184,6 +189,19 @@
     <!-- Tags END -->
     <!-- NAV START -->
     
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+    
+      <a class="nav-right" href="/2018/10/22/rabbitmq-study-2.html">
+        
+          RabbitMQ 学习之基本概念(2)
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
     <!-- NAV END -->
     <!-- 打赏 START -->
     
@@ -207,7 +225,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#时间简介"><span class="toc-nav-text">时间简介</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#asctime"><span class="toc-nav-text">asctime</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#ctime"><span class="toc-nav-text">ctime</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#gmtime"><span class="toc-nav-text">gmtime</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#RabbitMQ-学习"><span class="toc-nav-text">RabbitMQ 学习</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#简介"><span class="toc-nav-text">简介</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装"><span class="toc-nav-text">安装</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装-RabbitMQ-Server"><span class="toc-nav-text">安装 RabbitMQ Server</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#启动服务"><span class="toc-nav-text">启动服务</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#PHP-连接-RabbitMQ服务"><span class="toc-nav-text">PHP 连接 RabbitMQ服务</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装-amqp-扩展"><span class="toc-nav-text">安装 amqp 扩展</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Composer-包"><span class="toc-nav-text">Composer 包</span></a></li></ol></li></ol></li></ol>
     
   </div>
 </aside>
@@ -217,7 +235,7 @@
 
 <script>
   (function () {
-    var url = 'http://yoursite.com/about/time.html';
+    var url = 'http://yoursite.com/2018/10/19/rabbitmq-study-1.html';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -273,7 +291,7 @@
     var gitmentConfig = "yanm1ng";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "C语言函数库之时间库",
+        id: "RabbitMQ 学习之如何安装",
         owner: "yanm1ng",
         repo: "yanm1ng.github.io",
         oauth: {

@@ -10,7 +10,7 @@
   
   <title>
     
-      C语言函数库之时间库 | Seymour
+      RabbitMQ 学习之基本概念(2) | Seymour
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -126,8 +126,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>C语言函数库之时间库</h2>
-  <p class="post-date">2017-09-25</p>
+  <h2>RabbitMQ 学习之基本概念(2)</h2>
+  <p class="post-date">2018-10-22</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -135,48 +135,33 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>C语言中获取和操作日期和时间信息的函数都定义在time.h文件中。</p>
-<p>在time.h中，定义四个变量类型，</p>
-<ul>
-<li>size_t 是无符号整数类型(unsigned int)，它是 sizeof 关键字的结果。  </li>
-<li>time_t 这是一个适合存储日历时间类型。</li>
-<li>clock_t 这是一个适合存储处理器时间的类型。  </li>
-<li>struct tm 这是一个用来保存时间和日期的结构 。</li>
+    <section class="markdown-content"><h3 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h3><p>RabbitMQ 是 AMQP 协议的标准实现，相关流程如下图，</p>
+<p><img src="/images/rabbitmq/amqp.jpg" alt="AMQP 协议"></p>
+<p>让我们来看一下，AMQP 的基本概念</p>
+<h4 id="Broker"><a href="#Broker" class="headerlink" title="Broker"></a>Broker</h4><p>消息队列的实体物理服务器。</p>
+<h4 id="Virtual-Host"><a href="#Virtual-Host" class="headerlink" title="Virtual Host"></a>Virtual Host</h4><p>虚拟主机，一个 Broker 可以有多个虚拟主机，用作不同用户的权限分离。一个虚拟主机持有一组 Exchange、Queue和Binding。vhost 是 AMQP 概念的基础，必须在连接时指定，RabbitMQ 默认的 vhost 是 / ，你可以理解为 Mini 版的 RabbitMQ 服务，或者理解为虚拟机。</p>
+<h4 id="Connection"><a href="#Connection" class="headerlink" title="Connection"></a>Connection</h4><p>网络连接，比如一个TCP连接。</p>
+<h4 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h4><p>信道，多路复用连接中的一条独立的双向数据流通道。信道是建立在真实的TCP连接内地虚拟连接，AMQP 命令都是通过信道发出去的，不管是发布消息、订阅队列还是接收消息，这些动作都是通过信道完成。因为对于操作系统来说建立和销毁 TCP 都是非常昂贵的开销，所以引入了信道的概念，以复用一条 TCP 连接。</p>
+<h4 id="Exchange"><a href="#Exchange" class="headerlink" title="Exchange"></a>Exchange</h4><p>交换器，生产者将消息发送到 Exchange 中，由 Exchange 根据一定的规则将消息路由到一个或多个 Queue 中（或者丢弃）。</p>
+<h4 id="Exchange-Types"><a href="#Exchange-Types" class="headerlink" title="Exchange Types"></a>Exchange Types</h4><p>RabbitMQ常用的Exchange Type有 Fanout、 Direct、 Topic、 Headers 这四种。</p>
+<h5 id="Fanout"><a href="#Fanout" class="headerlink" title="Fanout"></a>Fanout</h5><p>这种类型的 Exchange 路由规则非常简单，它会把所有发送到该 Exchange 的消息路由到所有与它绑定的 Queue 中，这时 Routing key 不起作用。</p>
+<h5 id="Direct"><a href="#Direct" class="headerlink" title="Direct"></a>Direct</h5><p>这种类型的 Exchange 路由规则也很简单，它会把消息路由到那些 binding key 与 routing key 完全匹配的 Queue 中。</p>
+<h5 id="Topic"><a href="#Topic" class="headerlink" title="Topic"></a>Topic</h5><p>这种类型的Exchange的路由规则支持 binding key 和 routing key 的模糊匹配，会把消息路由到满足条件的 Queue。 binding key 中可以存在两种特殊字符 *与 #，用于做模糊匹配，其中 * 用于匹配一个单词，# 用于匹配0个或多个单词，单词以符号“.”为分隔符。</p>
+<h5 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h5><p>匹配的事AMQP消息的头部信息而不是路由键， 其余跟direct可以说是一样一样的</p>
+<h4 id="Routing-Key"><a href="#Routing-Key" class="headerlink" title="Routing Key"></a>Routing Key</h4><p>生产者在将消息发送给 Exchange 的时候，一般会指定一个 routing key，来指定这个消息的路由规则。 Exchange 会根据 routing key 和 Exchange Type（交换器类型） 以及 Binding key 的匹配情况来决定把消息路由到哪个 Queue。RabbitMQ 为 routing key 设定的长度限制为 255 bytes。</p>
+<h4 id="Binding"><a href="#Binding" class="headerlink" title="Binding"></a>Binding</h4><p>RabbitMQ 中通过 Binding 将 Exchange 与 Queue 关联起来。一个绑定就是基于路由键将交换器和消息队列连接起来的路由规则，所以可以将交换器理解成一个由绑定构成的路由表。</p>
+<h4 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h4><p>Queue 消息队列，用来保存消息直到发送给消费者。它是消息的容器，也是消息的终点。一个消息可投入一个或多个队列。消息一直在队列里面，等待消费者连接到这个队列将其取走。</p>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
+<li><a href="https://www.jianshu.com/p/e55e971aebd8" target="_blank" rel="noopener">https://www.jianshu.com/p/e55e971aebd8</a></li>
 </ul>
-<p>struct tm 的结构。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">tm</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> tm_sec;  <span class="comment">//代表目前秒数, 正常范围为0-59, 但允许至61 秒</span></span><br><span class="line">    <span class="keyword">int</span> tm_min;  <span class="comment">//代表目前分数, 范围0-59</span></span><br><span class="line">    <span class="keyword">int</span> tm_hour;  <span class="comment">//从午夜算起的时数, 范围为0-23</span></span><br><span class="line">    <span class="keyword">int</span> tm_mday;  <span class="comment">//目前月份的日数, 范围01-31</span></span><br><span class="line">    <span class="keyword">int</span> tm_mon;  <span class="comment">//代表目前月份, 从一月算起, 范围从0-11</span></span><br><span class="line">    <span class="keyword">int</span> tm_year;  <span class="comment">//从1900 年算起至今的年数</span></span><br><span class="line">    <span class="keyword">int</span> tm_wday;  <span class="comment">//一星期的日数, 从星期一算起, 范围为0-6</span></span><br><span class="line">    <span class="keyword">int</span> tm_yday;  <span class="comment">//从今年1 月1 日算起至今的天数, 范围为0-365</span></span><br><span class="line">    <span class="keyword">int</span> tm_isdst;  <span class="comment">//日光节约时间的旗标</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>在time.h中，定义两个宏，</p>
-<ul>
-<li>NULL 空指针常量。</li>
-<li>CLOCKS_PER_SEC 每秒的处理器时钟个数。</li>
-</ul>
-<p>定义的函数</p>
-<p><strong>clock()</strong>, 处理器时钟所使用的时间。<br><strong>difftime()</strong>, 计算两个时刻之间的差。<br><strong>mktime()</strong>, 将时间结构数据转换成经过的秒数(将struct tm转换成time_t)。<br><strong>time()</strong>, 取得目前的时间。<br>转换函数<br><strong>asctime()</strong>, 将时间和日期以字符串格式表示。<br><strong>ctime()</strong>, 把日期和时间转换为字符串。<br><strong>gmtime()</strong>, 把日期和时间转换为(UTC)时间。<br><strong>localtime()</strong>, 取得当地目前时间和日期。<br><strong>strftime</strong>, 将时间格式化。</p>
-<h3 id="时间简介"><a href="#时间简介" class="headerlink" title="时间简介"></a>时间简介</h3><p><strong>24时区</strong></p>
-<p><strong>格林威治标准时间(GMT)</strong></p>
-<p>格林威治标准时间(Greenwich Mean Time，简称G.M.T.)，十七世纪，格林威治皇家天文台为了海上霸权的扩张计画而进行天体观测。1675年旧皇家观测所(Old Royal Observatory) 正式成立，到了1884年决定以通过格林威治的子午线作为划分地球东西两半球的经度零度。观测所门口墙上有一个标志24小时的时钟，显示当下的时间，对全球而言，这里所设定的时间是世界时间参考点，全球都以格林威治的时间作为标准来设定时间。</p>
-<p><strong>世界协调时间UTC</strong></p>
-<p>UTC指的是Coordinated Universal Time－ 世界协调时间（又称世界标准时间、世界统一时间），是经过平均太阳时(以格林威治时间GMT为准)、地轴运动修正后的新时标以及以「秒」为单位的国际原子时所综合精算而成的时间，计算过程相当严谨精密，因此若以「世界标准时间」的角度来说，UTC比GMT来得更加精准。其误差值必须保持在0.9秒以内，若大于0.9秒则由位于巴黎的国际地球自转事务中央局发布闰秒，使UTC与地球自转周期一致。所以基本上UTC的本质强调的是比GMT更为精确的世界时间标准，不过对于现行表款来说，GMT与UTC的功能与精确度是没有差别的。</p>
-<p>我们国家已北京时间为准，就是在东八区，UTC+8。</p>
-<p>两者的关系：<strong>UTC = GMT +/- 0.9 s </strong>, 因此 UTC 间中需要进行 “闰秒” 以控制两者相差。 </p>
-<p><strong>日期时间表示方法</strong><br>1. 日期表示法：年为4位数，月为2位数，日为2位数，例如，2014-09-09或20140909<br>2. 日历星期：用两位数表示本年内第几个日历星期, 星期：从星期一开始，星期日结束，共7天【在西方，星期日为一周的第一天】<br>3. 时间表示法：小时，分，秒都用2位数表示，对UTC时间最后加一个大写字母Z，其他时区用实际实际那加时差来表示，如UTC时间下午2点30分5秒，表示为14:30:05Z或143005Z，当时的背景时间表示为22:30:05+08:00或223005+0800，也可简化为223005+08。<br>4. 日期时间组合表示法：合并表示时，要在时间前面加以大写字母T，如：2014-09-09T14:30:05+08:00或20140909T143005+08。</p>
-<h4 id="asctime"><a href="#asctime" class="headerlink" title="asctime"></a>asctime</h4><blockquote>
-<p>char<em> asctime (const struct tm </em> timeptr);</p>
-</blockquote>
-<h4 id="ctime"><a href="#ctime" class="headerlink" title="ctime"></a>ctime</h4><blockquote>
-<p>char<em> ctime (const time_t </em> timer);</p>
-</blockquote>
-<h4 id="gmtime"><a href="#gmtime" class="headerlink" title="gmtime"></a>gmtime</h4><blockquote>
-<p>struct tm <em> gmtime (const time_t </em> timer);把日期和时间转换为(GMT)时间。</p>
-</blockquote>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#" >
-    <span class="tag-code"></span>
+  <a href="/tags#RabbitMQ" >
+    <span class="tag-code">RabbitMQ</span>
   </a>
 
       </div>
@@ -184,6 +169,19 @@
     <!-- Tags END -->
     <!-- NAV START -->
     
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2018/10/19/rabbitmq-study-1.html">
+        <span class="nav-arrow">← </span>
+        
+          RabbitMQ 学习之如何安装
+        
+      </a>
+    
+    
+  </div>
+
     <!-- NAV END -->
     <!-- 打赏 START -->
     
@@ -207,7 +205,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#时间简介"><span class="toc-nav-text">时间简介</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#asctime"><span class="toc-nav-text">asctime</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#ctime"><span class="toc-nav-text">ctime</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#gmtime"><span class="toc-nav-text">gmtime</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#相关概念"><span class="toc-nav-text">相关概念</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Broker"><span class="toc-nav-text">Broker</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Virtual-Host"><span class="toc-nav-text">Virtual Host</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Connection"><span class="toc-nav-text">Connection</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Channel"><span class="toc-nav-text">Channel</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Exchange"><span class="toc-nav-text">Exchange</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Exchange-Types"><span class="toc-nav-text">Exchange Types</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#Fanout"><span class="toc-nav-text">Fanout</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#Direct"><span class="toc-nav-text">Direct</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#Topic"><span class="toc-nav-text">Topic</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#headers"><span class="toc-nav-text">headers</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Routing-Key"><span class="toc-nav-text">Routing Key</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Binding"><span class="toc-nav-text">Binding</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Queue"><span class="toc-nav-text">Queue</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#参考"><span class="toc-nav-text">参考</span></a></li></ol></li></ol></li></ol>
     
   </div>
 </aside>
@@ -217,7 +215,7 @@
 
 <script>
   (function () {
-    var url = 'http://yoursite.com/about/time.html';
+    var url = 'http://yoursite.com/2018/10/22/rabbitmq-study-2.html';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -273,7 +271,7 @@
     var gitmentConfig = "yanm1ng";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "C语言函数库之时间库",
+        id: "RabbitMQ 学习之基本概念(2)",
         owner: "yanm1ng",
         repo: "yanm1ng.github.io",
         oauth: {

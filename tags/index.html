@@ -1,168 +1,250 @@
 <!DOCTYPE html>
-<html lang="">
+<html>
   <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="小小码农一枚">
+  <meta name="keyword" content="">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
     
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+      Tags | Seymour
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
 
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-  <meta name="description" content="小小码农一枚"/>
-
-
-
-
-
-
-
-
-  <link rel="alternative" href="/default" title="Seymour" type="application/atom+xml">
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=10001" />
-
-
-
-<link rel="canonical" href="http://yoursite.com/tags/"/>
-
-
-<meta name="description" content="小小码农一枚">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Seymour">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
-<meta property="og:site_name" content="Seymour">
-<meta property="og:description" content="小小码农一枚">
-<meta property="og:updated_time" content="2017-07-24T10:58:14.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Seymour">
-<meta name="twitter:description" content="小小码农一枚">
-
-
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=10001" />
-<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
-
-
-
-
-
-<script type="text/javascript">
-  var themeConfig = {
-    fancybox: {
-      enable: false
-    },
-  };
-</script>
-
-
-
-
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
   
 
 
-
-    <title>  - Seymour </title>
-  </head>
-
-  <body>
-    <div id="page">
-      <header id="masthead"><div class="site-header-inner">
-    <h1 class="site-title">
-        <a href="/." class="logo">Seymour</a>
-    </h1>
-
-    <nav id="nav-top">
-        
-            <ul id="menu-top" class="nav-top-items">
-                
-                    <li class="menu-item">
-                        <a href="/archives">
-                            
-                            
-                                Archives
-                            
-                        </a>
-                    </li>
-                
-                    <li class="menu-item">
-                        <a href="/about">
-                            
-                            
-                                About
-                            
-                        </a>
-                    </li>
-                
-                    <li class="menu-item">
-                        <a href="/github">
-                            
-                            
-                                Github
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        
-  </nav>
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
 </div>
 
-      </header>
-      <div id="content">
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <!--<div class="logo"></div>-->
+      <span>Seymour</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
         
-    <div id="primary">
-        <article class="post">
-            <header class="post-header">
-                <h1 class="post-title">
-                    
-                </h1>
-            </header>
-            <div class="post-content">
-                
-            </div>
-        </article>
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
     </div>
+  </div>
+</header>
 
-      </div>
-
-      <footer id="colophon"><span class="copyright-year">
+    <div id="article-banner">
+  <h2>Tags</h2>
+  <p class="post-date">标签检索</p>
+</div>
+<main class="app-body">
+  <div id="tag-cloud">
     
-        &copy;
+      <a class="tag0" data-name="tag-RabbitMQ">RabbitMQ</a>
     
-        2014 -
+      <a class="tag2" data-name="tag-数据结构与算法">数据结构与算法</a>
     
-    2017
-    <span class="footer-author">Seymour.</span>
-</span>
-
-      </footer>
-
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
+      <a class="tag2" data-name="tag-javascript">javascript</a>
+    
+      <a class="tag0" data-name="tag-php">php</a>
+    
+      <a class="tag3" data-name="tag-python">python</a>
+    
+  </div>
+  
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-RabbitMQ">RabbitMQ</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/10/22/rabbitmq-study-2.html">RabbitMQ 学习之基本概念(2)</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/10/19/rabbitmq-study-1.html">RabbitMQ 学习之如何安装</a>
+          </li>
+        </ul>
+        
     </div>
     
-
-
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-数据结构与算法">数据结构与算法</h3>
+      
+    </div>
     
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-javascript">javascript</h3>
+      
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-php">php</h3>
+      
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-python">python</h3>
+      
+    </div>
+    
+</main>
 
+<script>
+  (function () {
+    var url = 'http://yoursite.com/tags/index.html'
+    $('#article-banner').geopattern(url)
+    $('.header').removeClass('fixed-header')
 
+    var tag = location.hash.replace('#', '')
+    if (tag) {
+      var tagId = "#tag-" + tag;
+      $("html, body").animate({
+        scrollTop: $(tagId).offset().top 
+      }, 400)
+    }
+  })();
+</script>
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2018 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+  </p>
+</footer>
 
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
 
-  
-    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
-  
+<script>
+  var hasLine = 'false';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
 
-  
-
-    <script type="text/javascript" src="/js/src/theme.js?v=10001"></script>
-<script type="text/javascript" src="/js/src/bootstrap.js?v=10001"></script>
-
+<script src="/js/script.js"></script>
   </body>
 </html>
